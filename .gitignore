@@ -61,3 +61,4 @@ Desktop.ini
 # --- Local database / uploads (if you add them later) ---
 # backend/data/
 # uploads/
+node_modules/
