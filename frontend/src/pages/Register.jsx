@@ -6,9 +6,9 @@ export default function RegisterPage() {
   const { register } = useAuth();
   const navigate = useNavigate();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState('amine');
+  const [email, setEmail] = useState('inwibakchinwi@gmail.com');
+  const [password, setPassword] = useState('12345678');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 

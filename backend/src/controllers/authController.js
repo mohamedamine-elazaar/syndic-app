@@ -102,3 +102,8 @@ export const me = asyncHandler(async (req, res) => {
     }
   });
 });
+
+export const listUsers = asyncHandler(async (req, res) => {
+  const users = await User.find().select('name email role createdAt');
+  res.json({ users });
+});

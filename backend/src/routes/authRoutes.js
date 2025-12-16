@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { body } from 'express-validator';
 import { validate } from '../middlewares/validate.js';
-import { requireAuth } from '../middlewares/auth.js';
-import { login, logout, me, register } from '../controllers/authController.js';
+import { requireAuth, requireRole } from '../middlewares/auth.js';
+import { login, logout, me, register, listUsers } from '../controllers/authController.js';
 
 export const authRoutes = Router();
 
@@ -27,3 +27,5 @@ authRoutes.post(
 authRoutes.post('/logout', logout);
 
 authRoutes.get('/me', requireAuth, me);
+
+authRoutes.get('/users', requireAuth, requireRole('admin'), listUsers);
