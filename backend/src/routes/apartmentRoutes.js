@@ -18,7 +18,7 @@ apartmentRoutes.get('/', listApartments);
 
 apartmentRoutes.post(
   '/',
-  requireRole('admin', 'staff'),
+  requireRole('admin'),
   [
     body('building').isMongoId(),
     body('number').isString().trim().isLength({ min: 1, max: 30 }),
@@ -33,7 +33,7 @@ apartmentRoutes.get('/:id', [param('id').isMongoId()], validate, getApartment);
 
 apartmentRoutes.put(
   '/:id',
-  requireRole('admin', 'staff'),
+  requireRole('admin'),
   [
     param('id').isMongoId(),
     body('building').optional().isMongoId(),
@@ -47,7 +47,7 @@ apartmentRoutes.put(
 
 apartmentRoutes.delete(
   '/:id',
-  requireRole('admin', 'staff'),
+  requireRole('admin'),
   [param('id').isMongoId()],
   validate,
   deleteApartment

@@ -46,7 +46,7 @@ export const register = asyncHandler(async (req, res) => {
     name,
     email,
     passwordHash,
-    role: 'owner'
+    role: 'client'
   });
 
   const token = signAccessToken(user);

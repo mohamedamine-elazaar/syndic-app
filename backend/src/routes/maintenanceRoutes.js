@@ -18,7 +18,7 @@ maintenanceRoutes.get('/', listMaintenance);
 
 maintenanceRoutes.post(
   '/',
-  requireRole('admin', 'staff'),
+  requireRole('admin'),
   [
     body('building').isMongoId(),
     body('title').isString().trim().isLength({ min: 2, max: 160 }),
@@ -33,7 +33,7 @@ maintenanceRoutes.get('/:id', [param('id').isMongoId()], validate, getMaintenanc
 
 maintenanceRoutes.put(
   '/:id',
-  requireRole('admin', 'staff'),
+  requireRole('admin'),
   [
     param('id').isMongoId(),
     body('building').optional().isMongoId(),
@@ -47,7 +47,7 @@ maintenanceRoutes.put(
 
 maintenanceRoutes.delete(
   '/:id',
-  requireRole('admin', 'staff'),
+  requireRole('admin'),
   [param('id').isMongoId()],
   validate,
   deleteMaintenance

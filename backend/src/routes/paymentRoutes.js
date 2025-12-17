@@ -12,7 +12,7 @@ paymentRoutes.get('/', listPayments);
 
 paymentRoutes.post(
   '/',
-  requireRole('admin', 'staff'),
+  requireRole('admin'),
   [
     body('apartment').isMongoId(),
     body('amount').isFloat({ min: 0 }),
@@ -26,4 +26,4 @@ paymentRoutes.post(
 
 paymentRoutes.get('/:id', [param('id').isMongoId()], validate, getPayment);
 
-paymentRoutes.delete('/:id', requireRole('admin', 'staff'), [param('id').isMongoId()], validate, deletePayment);
+paymentRoutes.delete('/:id', requireRole('admin'), [param('id').isMongoId()], validate, deletePayment);

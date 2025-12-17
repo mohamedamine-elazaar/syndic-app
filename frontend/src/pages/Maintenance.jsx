@@ -63,7 +63,7 @@ export default function MaintenancePage() {
         <p className="text-slate-600">Maintenance tickets.</p>
       </div>
 
-      {(user?.role === 'admin' || user?.role === 'staff') ? (
+      {user?.role === 'admin' ? (
         <div className="bg-white border border-slate-200 rounded-xl p-4">
           <h2 className="font-medium mb-3">Report Issue</h2>
           <form onSubmit={onSubmit} className="space-y-3">

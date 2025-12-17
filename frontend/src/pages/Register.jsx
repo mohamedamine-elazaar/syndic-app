@@ -31,7 +31,7 @@ export default function RegisterPage() {
     <div className="min-h-screen grid place-items-center bg-slate-50 p-4">
       <div className="w-full max-w-md bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
         <h1 className="text-xl font-semibold">Register</h1>
-        <p className="text-sm text-slate-600 mt-1">Create your owner account.</p>
+        <p className="text-sm text-slate-600 mt-1">Create your client account.</p>
 
         {error ? <div className="mt-4 text-sm text-red-600">{error}</div> : null}
 

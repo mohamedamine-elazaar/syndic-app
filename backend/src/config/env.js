@@ -17,5 +17,6 @@ export const env = {
   jwtAccessSecret: required('JWT_ACCESS_SECRET'),
   jwtAccessExpiresIn: process.env.JWT_ACCESS_EXPIRES_IN ?? '15m',
   cookieName: process.env.COOKIE_NAME ?? 'syndic_token',
-  corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5173'
+  // Comma-separated list of allowed origins. In development, localhost:* is also allowed.
+  corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5173,http://localhost:5174'
 };
