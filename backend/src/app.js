@@ -29,7 +29,21 @@ export function createApp() {
 
   app.use(
     cors({
-      origin: env.corsOrigin,
+      origin(origin, callback) {
+        // Non-browser clients (curl, Postman) often send no Origin header.
+        if (!origin) return callback(null, true);
+
+        // In development, allow any localhost port to avoid Vite port conflicts.
+        if (isDev && /^http:\/\/localhost:\d+$/.test(origin)) {
+          return callback(null, true);
+        }
+
+        if (allowedOrigins.includes(origin)) {
+          return callback(null, true);
+        }
+
+        return callback(new Error(`CORS blocked origin: ${origin}`));
+      },
       credentials: true
     })
   );
